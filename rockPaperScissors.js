@@ -1,30 +1,34 @@
 const express = require('express');
 const app = express();
 
-const game = (you, ai) => {
-
-  if ((you === "rock" && ai === "scissors") || (you === "scissors" && ai === "paper") || (you === "paper" && ai === "rock")) {
-    return `Congratulations! You won!`
-
-  } else if ((you === "rock" && ai === "paper") || (you === "paper" && ai === "scissors") || (you === "scissors" && ai === "rock")) {
-    return `You lost. Try again!`
-
-  } else {
-    return `We tied!`
-  }
-}
-
-const ai = () => {
-  let randomizer = Math.floor(Math.random() * 3);
-  let arrChoice = ["rock", "paper", "scissors"];
-  let compChoice = arrChoice[randomizer]
-  return compChoice;
-}
-
 
 app.get('/:shoot', (req, res) => {
-  res.send(`You picked:  ${req.params.shoot}. \n AI picked: ${ai()}. \n ${game(req.params.shoot, ai())}`)
+  let rock = [
+    {"user":"rock","ai":"rock","result":"tie"},
+    {"user":"rock","ai":"paper","result":"lose"},
+    {"user":"rock","ai":"scissors","result":"win"}
+  ]
+  let paper = [
+    {"user":"paper","ai":"paper","result":"tie"},
+    {"user":"paper","ai":"scissors","result":"lose"},
+    {"user":"paper","ai":"rock","result":"win"}
+  ]
+  let scissors = [
+    {"user":"scissors","ai":"scissors","result":"tie"},
+    {"user":"scissors","ai":"rock","result":"lose"},
+    {"user":"scissors","ai":"paper","result":"win"}
+  ]
 
+  if (req.params.shoot === "rock") {
+    res.json(rock[Math.floor(Math.random() * 3)])
+    // ai = rock[randomizer]
+  } else if (req.params.shoot === "paper") {
+    res.json(paper[Math.floor(Math.random() * 3)])
+    // return ai = paper[randomizer]
+  } else {
+    res.json(scissors[Math.floor(Math.random() * 3)])
+    // return ai = scissors[randomizer]
+  }
 })
 
 
