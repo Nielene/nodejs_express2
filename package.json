@@ -1,0 +1,22 @@
+{
+  "name": "nodejs_express2",
+  "version": "1.0.0",
+  "description": "## Rock Paper Scissors API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nielene/nodejs_express2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nielene/nodejs_express2/issues"
+  },
+  "homepage": "https://github.com/Nielene/nodejs_express2#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
