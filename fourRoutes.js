@@ -30,7 +30,18 @@ app.get('/mul/:num1/:num2', (req, res) => {
   if (isNaN(num1) || isNaN(num2)) {
     res.json("numbers only");
   } else {
-    res.json(`{ ${}, num2: } `)
+    res.json(`{ num1: ${parseInt(num1)}, num2: ${parseInt(num2)}, result: ${eval(parseInt(num1) * parseInt(num2))}} `)
+  }
+})
+
+app.get('/div/:num1/:num2', (req, res) => {
+  let num1 = req.params.num1;
+  let num2 = req.params.num2;
+
+  if (isNaN(num1) || isNaN(num2)) {
+    res.json("numbers only");
+  } else {
+    res.json(`{ num1: ${parseInt(num1)}, num2: ${parseInt(num2)}, result: ${parseInt(num1) / parseInt(num2)} }`)
   }
 })
 
