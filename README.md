@@ -1,3 +1,5 @@
+nodemon rockPaperScissors.js
+
 # Express Part 2 - Exercises
 
 ## Rock Paper Scissors API
@@ -27,7 +29,7 @@ For example, if the users navigates to `http://localhost:8000/add/2/4`, the resp
 
 `{num1: 2, num2: 4, result: 6}`
 
-* If either of the parameters is not a number, respond with an string like "numbers only".
+* If either of the parameters *is not a number*, respond with an string like "numbers only".
 
 * If the user navigates to any other route, respond with an explanatory message about your API.
 
